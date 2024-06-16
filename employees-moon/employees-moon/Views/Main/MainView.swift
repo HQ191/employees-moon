@@ -5,6 +5,7 @@ struct MainView<VM: MainViewModel>: View {
     
     var body: some View {
         VStack {
+            EmployeeSearchView(searchText: $viewModel.searchText)
             buildEmployeeList()
         }
         .background(.black)
@@ -12,7 +13,7 @@ struct MainView<VM: MainViewModel>: View {
     
     func buildEmployeeList() -> some View {
         List {
-            ForEach(viewModel.state.employeeGroups) { group in
+            ForEach(viewModel.employeeGroups) { group in
                 buildGroupView(group)
             }
         }

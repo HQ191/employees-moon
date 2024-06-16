@@ -15,8 +15,7 @@ struct EmployeeDetailView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.xxxs)
         }
-        .background(Color.black)
-        .rounded(radius: .quarck)
+        .background(Color.blackOffset)
     }
 }
 
