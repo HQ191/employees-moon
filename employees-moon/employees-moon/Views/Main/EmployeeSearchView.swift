@@ -21,12 +21,12 @@ struct EmployeeSearchView: View {
 private extension EmployeeSearchView {
     func buildTitleView() -> some View {
         ZStack(alignment: .leading) {
-            Text("Employees")
+            Text(verbatim: .main(.title))
                 .appFont(font: .medium, size: .h2)
                 .padding(.nano)
                 .frame(maxWidth: .infinity)
             
-            Image("employees_icon")
+            Image(image: .employeeIcon)
                 .resizable()
                 .frame(width: .xxxl, height: .xs)
         }
@@ -34,7 +34,7 @@ private extension EmployeeSearchView {
     
     func buildSearchBar() -> some View {
         HStack {
-            Image("search")
+            Image(image: .search)
                 .resizable()
                 .frame(width: .xs, height: .xs)
             
@@ -42,14 +42,14 @@ private extension EmployeeSearchView {
                 .accentColor(.white)
                 .foregroundStyle(.white)
                 .placeholder(when: searchText.isEmpty) {
-                    Text("Search by name, project or position").foregroundColor(.white)
+                    Text(verbatim: .main(.searchByName)).foregroundColor(.white)
                 }
             
             if isClearButtonVisible {
                 Button {
                     searchText = ""
                 } label: {
-                    Image("close")
+                    Image(image: .close)
                         .resizable()
                         .frame(width: .xxxs, height: .xxxs)
                 }

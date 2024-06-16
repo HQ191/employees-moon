@@ -7,16 +7,12 @@ struct MainView<VM: MainViewModel>: View {
         VStack {
             EmployeeSearchView(searchText: $viewModel.searchText)
             
-            if viewModel.employeeGroups.isEmpty && !viewModel.isLoading{
-                Text("No employees found")
-                    .appFont(size: .body)
-                    .padding(.nano)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
+            ZStack {
                 buildEmployeeList()
+                buildEmptyView()
             }
         }
-        .banner(isPresented: $viewModel.showError, style: .refresh, message: "Failed to refresh. Please try again.")
+        .banner(isPresented: $viewModel.showError, style: .refresh, message: .main(.failedRefresh))
         .background(.black)
     }
     
@@ -38,6 +34,16 @@ struct MainView<VM: MainViewModel>: View {
         .refreshable {
             viewModel.event(.onRefresh)
         }
+    }
+    
+    func buildEmptyView() -> some View {
+        guard !viewModel.isLoading && viewModel.employeeGroups.isEmpty else {
+            return EmptyView().anyView
+        }
+        
+        return Text(verbatim: .main(.noEmployees))
+            .appFont(size: .body)
+            .anyView
     }
     
     func buildGroupView(_ group: EmployeeGroupDto) -> some View {

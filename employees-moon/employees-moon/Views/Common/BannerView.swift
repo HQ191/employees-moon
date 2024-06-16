@@ -21,7 +21,7 @@ enum BannerStyle {
         case .warning:
             return Image(systemName: "exclamationmark.triangle")
         case .refresh:
-            return Image("refresh")
+            return Image(image: .close)
         }
     }
 }
@@ -71,7 +71,7 @@ private extension BannerView {
             }
         } label: {
             Spacer()
-            Image("close")
+            Image(image: .close)
                 .resizable()
                 .frame(width: .xxxs, height: .xxxs, alignment: .top)
         }

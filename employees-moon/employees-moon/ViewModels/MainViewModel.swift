@@ -72,7 +72,6 @@ private extension MainViewModelImpl {
             isLoading = false
             showError = true
         }
-        
     }
 }
 

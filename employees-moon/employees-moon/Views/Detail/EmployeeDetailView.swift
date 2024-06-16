@@ -22,7 +22,7 @@ struct EmployeeDetailView: View {
 private extension EmployeeDetailView {
     func buildHeaderView() -> some View {
         HStack {
-            Text("Employee Details")
+            Text(verbatim: .detail(.title))
                 .appFont(font: .medium, size: .h2)
                 .padding(.nano)
             Spacer()
@@ -42,7 +42,7 @@ private extension EmployeeDetailView {
     
     func buildPersonalInfoView() -> some View {
         VStack {
-            Text("PERSONAL INFO")
+            Text(verbatim: .detail(.personalInfo))
                 .appFont(size: .caption)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -50,16 +50,16 @@ private extension EmployeeDetailView {
                 .frame(height: .hairLine)
                 .background(Color.white.opacity(0.5))
             
-            buildInfoField(title: "First Name", value: employee.fname)
-            buildInfoField(title: "Last Name", value: employee.lname)
-            buildInfoField(title: "Position", value: employee.position)
+            buildInfoField(title: .detail(.firstName), value: employee.fname)
+            buildInfoField(title: .detail(.lastName), value: employee.lname)
+            buildInfoField(title: .detail(.position), value: employee.position)
         }
         .padding(.vertical, .xxs)
     }
     
     func buildContactInfoView() -> some View {
         VStack {
-            Text("CONTACT INFO")
+            Text(verbatim: .detail(.contactInfo))
                 .appFont(size: .caption)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -67,9 +67,9 @@ private extension EmployeeDetailView {
                 .frame(height: .hairLine)
                 .background(Color.white.opacity(0.5))
             
-            buildInfoField(title: "Email", value: employee.contactDetails.email)
+            buildInfoField(title: .detail(.email), value: employee.contactDetails.email)
             if let phone = employee.contactDetails.phone {
-                buildInfoField(title: "Phone", value: phone)
+                buildInfoField(title: .detail(.phone), value: phone)
             }
         }
         .padding(.vertical, .xxs)
@@ -92,7 +92,7 @@ private extension EmployeeDetailView {
         }
         
         return VStack {
-            Text("WORKED ON")
+            Text(verbatim: .detail(.workedOn))
                 .appFont(size: .caption)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
