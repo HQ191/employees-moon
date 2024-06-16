@@ -16,6 +16,11 @@
 		5C95AA2C2C1E7B300024CB94 /* View+ListRowStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95AA2B2C1E7B300024CB94 /* View+ListRowStyle.swift */; };
 		5C95AA2E2C1E7C570024CB94 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95AA2D2C1E7C570024CB94 /* View+Extensions.swift */; };
 		5C95AA302C1E7D4D0024CB94 /* Text+AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95AA2F2C1E7D4D0024CB94 /* Text+AppFont.swift */; };
+		5C95AA332C1E86770024CB94 /* EmployeeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95AA322C1E86770024CB94 /* EmployeeDetailView.swift */; };
+		5C95AA352C1E90D40024CB94 /* ObservableObject+Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95AA342C1E90D40024CB94 /* ObservableObject+Binding.swift */; };
+		5C95AA382C1E9AE10024CB94 /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95AA372C1E9AE10024CB94 /* WrappingHStack.swift */; };
+		5C95AA3B2C1E9EE50024CB94 /* PublicSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95AA3A2C1E9EE50024CB94 /* PublicSans-Regular.ttf */; };
+		5C95AA3D2C1E9EF30024CB94 /* PublicSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C95AA3C2C1E9EF30024CB94 /* PublicSans-Medium.ttf */; };
 		5C9F77B02C1AE276003EE765 /* EmployeesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F77AF2C1AE276003EE765 /* EmployeesApp.swift */; };
 		5C9F77B22C1AE276003EE765 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F77B12C1AE276003EE765 /* MainView.swift */; };
 		5C9F77B42C1AE277003EE765 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F77B32C1AE277003EE765 /* Images.xcassets */; };
@@ -42,6 +47,12 @@
 		5C95AA2B2C1E7B300024CB94 /* View+ListRowStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ListRowStyle.swift"; sourceTree = "<group>"; };
 		5C95AA2D2C1E7C570024CB94 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		5C95AA2F2C1E7D4D0024CB94 /* Text+AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+AppFont.swift"; sourceTree = "<group>"; };
+		5C95AA322C1E86770024CB94 /* EmployeeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailView.swift; sourceTree = "<group>"; };
+		5C95AA342C1E90D40024CB94 /* ObservableObject+Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableObject+Binding.swift"; sourceTree = "<group>"; };
+		5C95AA372C1E9AE10024CB94 /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
+		5C95AA3A2C1E9EE50024CB94 /* PublicSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PublicSans-Regular.ttf"; sourceTree = "<group>"; };
+		5C95AA3C2C1E9EF30024CB94 /* PublicSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PublicSans-Medium.ttf"; sourceTree = "<group>"; };
+		5C95AA3E2C1E9F230024CB94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5C9F77AC2C1AE276003EE765 /* employees-moon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "employees-moon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9F77AF2C1AE276003EE765 /* EmployeesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesApp.swift; sourceTree = "<group>"; };
 		5C9F77B12C1AE276003EE765 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		5C95AA1C2C1DA1E60024CB94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5C95AA392C1E9ED90024CB94 /* Fonts */,
 				5C95AA1D2C1DA1F70024CB94 /* Assets */,
 				5C95AA202C1DA75B0024CB94 /* Font.swift */,
 			);
@@ -120,8 +132,34 @@
 				5C95AA2B2C1E7B300024CB94 /* View+ListRowStyle.swift */,
 				5C95AA2D2C1E7C570024CB94 /* View+Extensions.swift */,
 				5C95AA2F2C1E7D4D0024CB94 /* Text+AppFont.swift */,
+				5C95AA342C1E90D40024CB94 /* ObservableObject+Binding.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5C95AA312C1E86650024CB94 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5C95AA322C1E86770024CB94 /* EmployeeDetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		5C95AA362C1E9ACE0024CB94 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5C95AA372C1E9AE10024CB94 /* WrappingHStack.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5C95AA392C1E9ED90024CB94 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5C95AA3A2C1E9EE50024CB94 /* PublicSans-Regular.ttf */,
+				5C95AA3C2C1E9EF30024CB94 /* PublicSans-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5C9F77A32C1AE276003EE765 = {
@@ -143,6 +181,8 @@
 		5C9F77AE2C1AE276003EE765 /* employees-moon */ = {
 			isa = PBXGroup;
 			children = (
+				5C95AA3E2C1E9F230024CB94 /* Info.plist */,
+				5C95AA282C1E78EC0024CB94 /* Extensions */,
 				5C95AA1C2C1DA1E60024CB94 /* Resources */,
 				5C9F77C62C1AE510003EE765 /* Core */,
 				5C9F77D12C1B1B40003EE765 /* Data */,
@@ -176,8 +216,9 @@
 		5C9F77BE2C1AE35C003EE765 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5C95AA282C1E78EC0024CB94 /* Extensions */,
+				5C95AA362C1E9ACE0024CB94 /* Common */,
 				5C95AA252C1E6EFE0024CB94 /* Main */,
+				5C95AA312C1E86650024CB94 /* Detail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +337,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C95AA1F2C1DA3420024CB94 /* Colors.xcassets in Resources */,
+				5C95AA3B2C1E9EE50024CB94 /* PublicSans-Regular.ttf in Resources */,
+				5C95AA3D2C1E9EF30024CB94 /* PublicSans-Medium.ttf in Resources */,
 				5C9F77B72C1AE277003EE765 /* Preview Assets.xcassets in Resources */,
 				5C9F77B42C1AE277003EE765 /* Images.xcassets in Resources */,
 			);
@@ -311,8 +354,10 @@
 				5C9F77D92C1B1F45003EE765 /* NetworkService.swift in Sources */,
 				5C9F77DD2C1B24B7003EE765 /* EmployeeModel.swift in Sources */,
 				5C95AA212C1DA75B0024CB94 /* Font.swift in Sources */,
+				5C95AA332C1E86770024CB94 /* EmployeeDetailView.swift in Sources */,
 				5C9F77B22C1AE276003EE765 /* MainView.swift in Sources */,
 				5C9F77D42C1B1DE4003EE765 /* Endpoint.swift in Sources */,
+				5C95AA382C1E9AE10024CB94 /* WrappingHStack.swift in Sources */,
 				5C95AA242C1E6D0F0024CB94 /* EmployeeGroupDto.swift in Sources */,
 				5C95AA2A2C1E78F90024CB94 /* CGFloat+Spacing.swift in Sources */,
 				5C95AA2C2C1E7B300024CB94 /* View+ListRowStyle.swift in Sources */,
@@ -324,6 +369,7 @@
 				5C9F77D62C1B1E61003EE765 /* Endpoint+API.swift in Sources */,
 				5C9F77B02C1AE276003EE765 /* EmployeesApp.swift in Sources */,
 				5C9F77C02C1AE3CA003EE765 /* MainViewModel.swift in Sources */,
+				5C95AA352C1E90D40024CB94 /* ObservableObject+Binding.swift in Sources */,
 				5C9F77CA2C1AE539003EE765 /* ViewModel.swift in Sources */,
 				5C95AA302C1E7D4D0024CB94 /* Text+AppFont.swift in Sources */,
 				5C95AA182C1D90CC0024CB94 /* EmployeeResponseModel.swift in Sources */,
@@ -464,6 +510,7 @@
 				DEVELOPMENT_TEAM = UMKD57ZP7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "employees-moon/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -493,6 +540,7 @@
 				DEVELOPMENT_TEAM = UMKD57ZP7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "employees-moon/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

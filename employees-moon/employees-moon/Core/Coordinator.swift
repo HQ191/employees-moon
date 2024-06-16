@@ -5,7 +5,8 @@ protocol Coordinator: ObservableObject {
     associatedtype CoordinatorView: View
     associatedtype Route: Equatable
     
+    var screenView: ScreenView { get }
+
     func makeView() -> CoordinatorView
-    func makeScreenView() -> ScreenView
     func route(_ route: Route)
 }

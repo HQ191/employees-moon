@@ -1,14 +1,27 @@
 import SwiftUI
 
 enum MainRoute: Equatable {
-    case detailView
+    case detailView(EmployeeModel)
 }
 
 protocol MainCoordinator: Coordinator {
+    var isDetailViewPresented: Bool { get set }
+    func makeDetailView() -> AnyView
 }
 
 class MainCoordinatorImpl: MainCoordinator {
+    @Published var isDetailViewPresented = false
+    
     private let networkService: NetworkService
+    private var employeeDetail: EmployeeModel?
+    
+    lazy var screenView: some View = {
+        let viewModel = MainViewModelImpl(
+            coordinator: self,
+            fetchEmployeeUsecase: .init(networkService: networkService)
+        )
+        return MainView(viewModel: viewModel)
+    }()
     
     init(networkService: NetworkService) {
         self.networkService = networkService
@@ -19,15 +32,21 @@ class MainCoordinatorImpl: MainCoordinator {
         return coordinatorView
     }
     
-    func makeScreenView() -> some View {
-        let viewModel = MainViewModelImpl(
-            coordinator: self,
-            fetchEmployeeUsecase: .init(networkService: networkService)
-        )
-        return MainView(viewModel: viewModel)
+    func route(_ route: MainRoute) {
+        switch route {
+        case .detailView(let employee):
+            employeeDetail = employee
+            isDetailViewPresented = true
+        }
     }
     
-    func route(_ route: MainRoute) {
-        
+    func makeDetailView() -> AnyView {
+        guard let employee = employeeDetail else {
+            return AnyView(EmptyView())
+        }
+        return AnyView(EmployeeDetailView(
+            isPresented: binding(for: \.isDetailViewPresented),
+            employee: employee
+        ))
     }
 }

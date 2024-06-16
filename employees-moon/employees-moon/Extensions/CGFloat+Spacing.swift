@@ -14,7 +14,7 @@ extension CGFloat {
     /// Value: 10
     static let micro: CGFloat = 10
     /// Value: 14
-    static let mini: CGFloat = 14
+    static let mini: CGFloat = 12
     /// Value: 16
     static let xxxs: CGFloat = 16
     /// Value: 20

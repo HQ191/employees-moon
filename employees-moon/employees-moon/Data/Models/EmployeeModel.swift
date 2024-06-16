@@ -1,3 +1,5 @@
+import Foundation
+
 struct EmployeeModel: Decodable, Identifiable, Equatable {
     struct Contact: Decodable, Equatable {
         let email: String
@@ -12,7 +14,7 @@ struct EmployeeModel: Decodable, Identifiable, Equatable {
         case projects
     }
     
-    var id: String { fname + lname }
+    var id = UUID()
     let fname: String
     let lname: String
     let position: String

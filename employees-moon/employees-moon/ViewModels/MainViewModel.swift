@@ -27,7 +27,7 @@ class MainViewModelImpl: MainViewModel {
     func event(_ event: MainViewEvent) {
         switch event {
         case .onEmployeeSelected(let employee):
-            print(employee)
+            coordinator.route(.detailView(employee))
         }
     }
 }

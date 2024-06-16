@@ -34,7 +34,9 @@ struct MainView<VM: MainViewModel>: View {
     }
     
     func buildEmployeeItem(_ employee: EmployeeModel) -> some View {
-        VStack {
+        Button {
+            viewModel.event(.onEmployeeSelected(employee))
+        } label: {
             Text(employee.fname + " " + employee.lname)
                 .appFont(size: .body)
                 .padding(.xs)

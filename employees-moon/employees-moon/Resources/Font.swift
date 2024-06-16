@@ -10,8 +10,7 @@ enum FontSize: CGFloat {
 
 enum AppFont: String {
     case regular = "PublicSans-Regular"
-    case bold = "PublicSans-Bold"
-    case semiBold = "PublicSans-SemiBold"
+    case medium = "PublicSans-Medium"
 }
 
 extension Font {
