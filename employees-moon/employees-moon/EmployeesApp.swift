@@ -4,7 +4,9 @@ import SwiftUI
 struct EmployeesApp: App {
     var body: some Scene {
         WindowGroup {
-            MainCoordinatorImpl().makeView()
+            MainCoordinatorImpl(
+                networkService: NetworkServiceImpl()
+            ).makeView()
         }
     }
 }

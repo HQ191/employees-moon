@@ -2,7 +2,7 @@ import Combine
 import SwiftUI
 
 protocol ViewModel: ObservableObject {
-    associatedtype State: ObservableObject
+    associatedtype State: Equatable
     associatedtype Coord: Coordinator
     associatedtype Event: Equatable
 
