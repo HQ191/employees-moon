@@ -79,7 +79,7 @@ private extension EmployeeDetailView {
         HStack {
             Text(title)
                 .appFont(size: .body)
-            Spacer()
+            Spacer(minLength: .nano)
             Text(value)
                 .appFont(font: .medium, size: .body)
         }
