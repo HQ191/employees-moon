@@ -8,6 +8,7 @@ struct MainView<VM: MainViewModel>: View {
             EmployeeSearchView(searchText: $viewModel.searchText)
             buildEmployeeList()
         }
+        .banner(isPresented: $viewModel.showError, style: .refresh, message: "Failed to refresh. Please try again.")
         .background(.black)
     }
     

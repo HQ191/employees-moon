@@ -10,6 +10,7 @@ protocol MainViewModel: ViewModel {
     var employeeGroups: [EmployeeGroupDto] { get set }
     var searchText: String { get set }
     var isLoading: Bool { get set }
+    var showError: Bool { get set }
     
     func event(_ event: MainViewEvent)
 }
@@ -18,9 +19,10 @@ class MainViewModelImpl: MainViewModel {
     @Published var employeeGroups: [EmployeeGroupDto] = []
     @Published var searchText: String = ""
     @Published var isLoading: Bool = false
+    @Published var showError: Bool = false
     
     let coordinator: MainCoordinatorImpl
-
+    
     private let fetchEmployeeUsecase: FetchEmployeeUsecase
     private var employees: [EmployeeModel] = []
     private var subscriptions: Set<AnyCancellable> = []
@@ -60,11 +62,17 @@ private extension MainViewModelImpl {
     }
     
     @MainActor func fetchEmployees() async {
-        isLoading = true
-        guard let employees = try? await fetchEmployeeUsecase.invoke() else { return }
-        self.employees = employees
-        employeeGroups = employees.sortedGroups
-        isLoading = false
+        do {
+            isLoading = true
+            let employees = try await fetchEmployeeUsecase.invoke()
+            self.employees = employees
+            employeeGroups = employees.sortedGroups
+            isLoading = false
+        } catch {
+            isLoading = false
+            showError = true
+        }
+        
     }
 }
 
@@ -94,7 +102,8 @@ private extension [EmployeeModel] {
             
             let matchesPosition = employee.position.lowercased().contains(lowercasedSearchString)
             
-            let matchesProjects = employee.projects?.contains(where: { $0.lowercased().contains(lowercasedSearchString) }) ?? false
+            let matchesProjects = employee.projects?
+                .contains(where: { $0.lowercased().contains(lowercasedSearchString) }) ?? false
             
             return matchesName || matchesPosition || matchesProjects
         }
