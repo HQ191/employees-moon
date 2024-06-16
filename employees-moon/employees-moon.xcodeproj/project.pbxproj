@@ -70,6 +70,7 @@
 		5C95AA502C1F103E0024CB94 /* MainStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStrings.swift; sourceTree = "<group>"; };
 		5C95AA522C1F11460024CB94 /* Main.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Main.xcstrings; sourceTree = "<group>"; };
 		5C95AA542C1F1AA60024CB94 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		5C95AA562C1F1E020024CB94 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5C9F77AC2C1AE276003EE765 /* Employees Moon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employees Moon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9F77AF2C1AE276003EE765 /* EmployeesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesApp.swift; sourceTree = "<group>"; };
 		5C9F77B12C1AE276003EE765 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -205,6 +206,7 @@
 		5C9F77A32C1AE276003EE765 = {
 			isa = PBXGroup;
 			children = (
+				5C95AA562C1F1E020024CB94 /* README.md */,
 				5C9F77AE2C1AE276003EE765 /* employees-moon */,
 				5C9F77AD2C1AE276003EE765 /* Products */,
 			);
@@ -221,16 +223,16 @@
 		5C9F77AE2C1AE276003EE765 /* employees-moon */ = {
 			isa = PBXGroup;
 			children = (
-				5C95AA3E2C1E9F230024CB94 /* Info.plist */,
+				5C9F77C62C1AE510003EE765 /* Core */,
 				5C95AA282C1E78EC0024CB94 /* Extensions */,
 				5C95AA1C2C1DA1E60024CB94 /* Resources */,
-				5C9F77C62C1AE510003EE765 /* Core */,
 				5C9F77D12C1B1B40003EE765 /* Data */,
 				5C9F77C12C1AE3DB003EE765 /* Coordinators */,
 				5C9F77BE2C1AE35C003EE765 /* Views */,
 				5C9F77BD2C1AE350003EE765 /* ViewModels */,
 				5C9F77CF2C1B0A97003EE765 /* Services */,
 				5C95AA192C1D916C0024CB94 /* Usecases */,
+				5C95AA3E2C1E9F230024CB94 /* Info.plist */,
 				5C9F77AF2C1AE276003EE765 /* EmployeesApp.swift */,
 				5C9F77B52C1AE277003EE765 /* Preview Content */,
 			);
@@ -563,6 +565,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -592,6 +595,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

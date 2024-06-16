@@ -55,8 +55,7 @@ private extension MainViewModelImpl {
         $searchText
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .sink { [unowned self] searchText in
-                employeeGroups = employees.filterEmployees(searchString: searchText)
-                    .sortedGroups
+                setEmployeeGroups(employees)
             }
             .store(in: &subscriptions)
     }
@@ -66,12 +65,17 @@ private extension MainViewModelImpl {
             isLoading = true
             let employees = try await fetchEmployeeUsecase.invoke()
             self.employees = employees
-            employeeGroups = employees.sortedGroups
+            setEmployeeGroups(employees)
             isLoading = false
         } catch {
             isLoading = false
             showError = true
         }
+    }
+    
+    func setEmployeeGroups(_ employees: [EmployeeModel]) {
+        employeeGroups = employees.filterEmployees(searchString: searchText)
+            .sortedGroups
     }
 }
 

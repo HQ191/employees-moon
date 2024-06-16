@@ -5,7 +5,7 @@ struct MainCoordinatorView<Coordinator: MainCoordinator>: View {
     
     var body: some View {
         coordinator.screenView
-            .popover(isPresented: $coordinator.isDetailViewPresented) {
+            .sheet(isPresented: $coordinator.isDetailViewPresented) {
                 coordinator.makeDetailView()
             }
     }
