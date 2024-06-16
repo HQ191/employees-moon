@@ -3,11 +3,13 @@ import Combine
 
 enum MainViewEvent: Equatable {
     case onEmployeeSelected(EmployeeModel)
+    case onRefresh
 }
 
 protocol MainViewModel: ViewModel {
     var employeeGroups: [EmployeeGroupDto] { get set }
     var searchText: String { get set }
+    var isLoading: Bool { get set }
     
     func event(_ event: MainViewEvent)
 }
@@ -15,6 +17,8 @@ protocol MainViewModel: ViewModel {
 class MainViewModelImpl: MainViewModel {
     @Published var employeeGroups: [EmployeeGroupDto] = []
     @Published var searchText: String = ""
+    @Published var isLoading: Bool = false
+    
     let coordinator: MainCoordinatorImpl
 
     private let fetchEmployeeUsecase: FetchEmployeeUsecase
@@ -32,6 +36,9 @@ class MainViewModelImpl: MainViewModel {
         switch event {
         case .onEmployeeSelected(let employee):
             coordinator.route(.detailView(employee))
+            
+        case .onRefresh:
+            Task { await fetchEmployees() }
         }
     }
 }
@@ -53,9 +60,11 @@ private extension MainViewModelImpl {
     }
     
     @MainActor func fetchEmployees() async {
+        isLoading = true
         guard let employees = try? await fetchEmployeeUsecase.invoke() else { return }
         self.employees = employees
         employeeGroups = employees.sortedGroups
+        isLoading = false
     }
 }
 

@@ -13,11 +13,22 @@ struct MainView<VM: MainViewModel>: View {
     
     func buildEmployeeList() -> some View {
         List {
+            if viewModel.isLoading {
+                ProgressView()
+                    .tint(.white)
+                    .frame(maxWidth: .infinity, maxHeight: .xs, alignment: .center)
+                    .listRowBackground(Color.black)
+                    .id(UUID())
+            }
+            
             ForEach(viewModel.employeeGroups) { group in
                 buildGroupView(group)
             }
         }
         .scrollContentBackground(.hidden)
+        .refreshable {
+            viewModel.event(.onRefresh)
+        }
     }
     
     func buildGroupView(_ group: EmployeeGroupDto) -> some View {
