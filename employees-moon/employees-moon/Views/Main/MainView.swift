@@ -6,7 +6,15 @@ struct MainView<VM: MainViewModel>: View {
     var body: some View {
         VStack {
             EmployeeSearchView(searchText: $viewModel.searchText)
-            buildEmployeeList()
+            
+            if viewModel.employeeGroups.isEmpty && !viewModel.isLoading{
+                Text("No employees found")
+                    .appFont(size: .body)
+                    .padding(.nano)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                buildEmployeeList()
+            }
         }
         .banner(isPresented: $viewModel.showError, style: .refresh, message: "Failed to refresh. Please try again.")
         .background(.black)
